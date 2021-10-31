@@ -1,89 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/views/widgets/times_bar.dart';
+import 'package:mzk/views/widgets/music_bar.dart';
+
+import 'widgets/album_image.dart';
+import 'widgets/times_code.dart';
+import 'widgets/titre.dart';
 
 /* -------------------------------------------------------------------------- */
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
-/* -------------------------------------------------------------------------- */
-Widget timesCode() => Positioned(
-    bottom: 0.03 * Get.height,
-    left: 0.43 * Get.width,
-    /*right: 0.5 * width,*/
-    child: Stack(children: <Widget>[
-      Text('02:30',
-          style: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold)),
-    ]));
-/* -------------------------------------------------------------------------- */
-Widget titre() => Positioned(
-    bottom: 0.17 * Get.height,
-    left: 0.3 * Get.width,
-    /*right: 0.5 * width,*/
-    child: Column(children: <Widget>[
-      Text(
-        'Tsara Joro',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
-          shadows: [
-            Shadow(
-              blurRadius: 10.0,
-              color: Colors.black,
-              offset: Offset(5.0, 5.0),
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  bool isPlaying = false;
+  late Animation animation;
+  late AnimationController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: const Duration(microseconds: 500), vsync: this);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: Stack(
+          children: <Widget>[
+            artisteImage(),
+            timesBar(),
+            titre(),
+            timesCode(),
+            Positioned(
+              top: 0.05 * Get.height,
+              right: 0.81 * Get.width,
+              child: MaterialButton(
+                shape: CircleBorder(),
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/setting');
+                },
+                child: Icon(
+                  Icons.settings_outlined,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            /*il est préferable d'utiliser MaterialButton si tu veux contenir une icon ,
+            elle sera plus centré. CircularAvatar est plutôt pour l'image*/
+            Positioned(
+              top: 0.05 * Get.height,
+              left: 0.81 * Get.width,
+              child: MaterialButton(
+                shape: CircleBorder(),
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/playList');
+                },
+                child: Icon(
+                  Icons.queue_music_outlined,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      Text('Amino',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 25,
-            shadows: [
-              Shadow(
-                blurRadius: 10.0,
-                color: Colors.black,
-                offset: Offset(5.0, 5.0),
-              ),
-            ],
-          )),
-      MaterialButton(
-        shape: CircleBorder(),
-        color: Colors.white,
-        onPressed: () {},
-        child: Icon(
-          Icons.favorite_rounded,
-          size: 30,
-          color: Colors.red.shade400,
-        ),
-      )
-    ]));
-/* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
-Widget artisteImage() => Container(
-    width: double.infinity,
-    height: double.infinity,
-    margin: EdgeInsets.only(
-      left: 50,
-      right: 50,
-      bottom: 0.15 * Get.height,
-    ),
-    decoration: BoxDecoration(
-        image: DecorationImage(
-          image: ExactAssetImage('assets/images/denise2.jpg'),
-          /*doit changer en fonction du photo  de l'album
-            les primaryWatch doit hériter du même couleur que cette album..sinon l'user peut choisir sa couleur 'color picker'*/
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular((Get.width - 100) / 2),
-          bottomRight: Radius.circular((Get.width - 100) / 2),
-        ),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              offset: Offset(0, 8),
-              blurRadius: 5.0),
-        ]));
+      bottomNavigationBar: Container(
+        child: MusicBar(),
+      ),
+    );
+  }
+}
