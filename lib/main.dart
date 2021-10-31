@@ -7,6 +7,7 @@ import 'package:mzk/views/settings_page.dart';
 import 'package:mzk/views/liste_page.dart';
 
 import 'views/times_bar.dart';
+import 'views/widgets/music_bar.dart';
 
 void main() => runApp(MaterialApp(
         //home: MyApp(),
@@ -84,71 +85,9 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       ),
       bottomNavigationBar: Container(
         child: Stack(children: <Widget>[
-          musicBar(),
+          MusicBar(),
         ]),
       ),
     );
   }
-
-  Widget musicBar() => Container(
-        height: 0.15 * Get.height,
-        decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              topRight: Radius.circular(30),
-            )),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.shuffle_outlined,
-                size: 34,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.skip_previous_outlined,
-                size: 35,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              iconSize: 45,
-              color: Colors.white,
-              icon: AnimatedIcon(
-                icon: AnimatedIcons.play_pause,
-                progress: controller,
-              ),
-              onPressed: () {
-                setState(() {
-                  isPlaying = !isPlaying;
-                  isPlaying ? controller.forward() : controller.reverse();
-                });
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.skip_next_outlined,
-                size: 35,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.playlist_add_rounded,
-                size: 40,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      );
 }

@@ -143,7 +143,9 @@ Widget photoCover() => Container(
             right: 0.81 * Get.width,
             child: RoundButton(
               icon: Icons.arrow_back_ios,
-              onTap: () {},
+              onTap: () {
+                Get.back();
+              },
               key: null,
             ),
           ),
