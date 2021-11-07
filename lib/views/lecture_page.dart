@@ -8,12 +8,13 @@ import 'widgets/times_code.dart';
 import 'widgets/titre.dart';
 
 /* -------------------------------------------------------------------------- */
-class MyApp extends StatefulWidget {
+class HomeSreen extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _HomeSreenState createState() => _HomeSreenState();
 }
 
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+class _HomeSreenState extends State<HomeSreen>
+    with SingleTickerProviderStateMixin {
   bool isPlaying = false;
   late Animation animation;
   late AnimationController controller;
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Colors.grey.shade300,
         child: Stack(
           children: <Widget>[
             artisteImage(),
@@ -36,8 +37,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             titre(),
             timesCode(),
             Positioned(
-              top: 0.05 * Get.height,
-              right: 0.81 * Get.width,
+              top: 0.1 * Get.height,
+              right: 0.83 * Get.width,
               child: MaterialButton(
                 shape: CircleBorder(),
                 color: Colors.black,
@@ -54,8 +55,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             /*il est préferable d'utiliser MaterialButton si tu veux contenir une icon ,
             elle sera plus centré. CircularAvatar est plutôt pour l'image*/
             Positioned(
-              top: 0.05 * Get.height,
-              left: 0.81 * Get.width,
+              top: 0.1 * Get.height,
+              left: 0.83 * Get.width,
               child: MaterialButton(
                 shape: CircleBorder(),
                 color: Colors.black,
@@ -73,6 +74,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         ),
       ),
       bottomNavigationBar: Container(
+        color: Colors.grey.shade300,
         child: MusicBar(),
       ),
     );
