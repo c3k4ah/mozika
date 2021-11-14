@@ -18,24 +18,31 @@ class LecturePage extends StatelessWidget {
           ),
           Positioned(
             top: 0.162 * Get.height,
-            left: 0.41 * Get.width,
+            left: 0.4 * Get.width,
             //right: 0.5 * width,
             child: Container(
                 width: 100,
                 height: 60,
                 decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                       bottomLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30),
-                    )),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 30,
+                          offset: Offset(2, 2),
+                          spreadRadius: 0.5)
+                    ]),
                 child: Center(
                   child: Icon(
                     Icons.pause,
                     size: 35,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 )),
           ),

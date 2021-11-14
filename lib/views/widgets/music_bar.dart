@@ -24,13 +24,9 @@ class _MusicBarState extends State<MusicBar>
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 0.15 * Get.height,
+      height: 0.13 * Get.height,
       decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
+        color: Colors.grey.shade300,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -40,7 +36,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.shuffle_outlined,
               size: 34,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),
@@ -48,29 +44,42 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.skip_previous_outlined,
               size: 35,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),
-          IconButton(
-            iconSize: 45,
-            color: Colors.white,
-            icon: AnimatedIcon(
-              icon: AnimatedIcons.play_pause,
-              progress: controller,
+          Container(
+            width: 90,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.red.shade800,
+                      blurRadius: 30,
+                      offset: Offset(2, 2),
+                      spreadRadius: 0.5)
+                ]),
+            child: IconButton(
+              iconSize: 45,
+              color: Colors.black,
+              icon: AnimatedIcon(
+                icon: AnimatedIcons.play_pause,
+                progress: controller,
+              ),
+              onPressed: () {
+                setState(() {
+                  isPlaying = !isPlaying;
+                  isPlaying ? controller.forward() : controller.reverse();
+                });
+              },
             ),
-            onPressed: () {
-              setState(() {
-                isPlaying = !isPlaying;
-                isPlaying ? controller.forward() : controller.reverse();
-              });
-            },
           ),
           IconButton(
             icon: Icon(
               Icons.skip_next_outlined,
               size: 35,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),
@@ -78,7 +87,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.playlist_add_rounded,
               size: 40,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),

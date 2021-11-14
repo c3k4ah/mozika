@@ -40,15 +40,16 @@ class _HomeSreenState extends State<HomeSreen>
               top: 0.1 * Get.height,
               right: 0.83 * Get.width,
               child: MaterialButton(
-                shape: CircleBorder(),
-                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                color: Colors.white,
                 onPressed: () {
                   Navigator.pushNamed(context, '/setting');
                 },
                 child: Icon(
                   Icons.settings_outlined,
                   size: 30,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -58,15 +59,16 @@ class _HomeSreenState extends State<HomeSreen>
               top: 0.1 * Get.height,
               left: 0.83 * Get.width,
               child: MaterialButton(
-                shape: CircleBorder(),
-                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)),
+                color: Colors.white,
                 onPressed: () {
                   Navigator.pushNamed(context, '/playList');
                 },
                 child: Icon(
                   Icons.queue_music_outlined,
                   size: 30,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
             ),
