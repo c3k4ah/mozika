@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/views/widgets/liste_card.dart';
 
 class LecturePage extends StatelessWidget {
   const LecturePage({Key? key}) : super(key: key);
@@ -95,10 +96,18 @@ class ListePlay extends StatelessWidget {
     return Container(
       color: Colors.red,
       child: Container(
-        height: .55 * Get.height,
+        height: .6 * Get.height,
         decoration: BoxDecoration(
           color: Colors.grey.shade300,
           borderRadius: BorderRadius.only(topRight: Radius.circular(50)),
+        ),
+        child: ListView.builder(
+          itemCount: 15,
+          padding: EdgeInsets.symmetric(
+              vertical: Get.height * 0.05, horizontal: Get.width * 0.03),
+          itemBuilder: (context, index) {
+            return CardListeMusic();
+          },
         ),
       ),
     );
