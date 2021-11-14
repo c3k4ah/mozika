@@ -10,19 +10,22 @@ Widget artisteImage() => Container(
       bottom: 0.15 * Get.height,
     ),
     decoration: BoxDecoration(
-        image: DecorationImage(
-          image: ExactAssetImage('assets/images/denise2.jpg'),
-          /*doit changer en fonction du photo  de l'album
+      image: DecorationImage(
+        image: ExactAssetImage('assets/images/denise2.jpg'),
+        /*doit changer en fonction du photo  de l'album
             les primaryWatch doit hériter du même couleur que cette album..sinon l'user peut choisir sa couleur 'color picker'*/
-          fit: BoxFit.cover,
+        fit: BoxFit.cover,
+      ),
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular((Get.width - 100) / 2),
+        bottomRight: Radius.circular((Get.width - 100) / 2),
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black54,
+          offset: Offset(0, 20),
+          blurRadius: 30,
+          spreadRadius: 0,
         ),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular((Get.width - 100) / 2),
-          bottomRight: Radius.circular((Get.width - 100) / 2),
-        ),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              offset: Offset(0, 8),
-              blurRadius: 5.0),
-        ]));
+      ],
+    ));

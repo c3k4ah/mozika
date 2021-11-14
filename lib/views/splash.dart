@@ -18,31 +18,27 @@ class _SplashScreenState extends State<SplashScreen> {
             gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomLeft,
-          colors: [
-            Color(0xFFFFEFEF),
-            Color(0xFFE7C7C7),
-          ],
+          colors: [Color(0xFFCFCDCD), Color(0xFFCFCFCF), Color(0xFFFFFFFF)],
         )),
         alignment: Alignment.center,
-        // color: Color(0xffeb3446),
         child: Column(
           children: [
             Container(
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.32),
-                height: MediaQuery.of(context).size.height * 0.30,
+                height: MediaQuery.of(context).size.height * 0.20,
                 child: Image.asset('assets/icon/mzk_logo.png')),
             Container(
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.275),
                 child: Shimmer.fromColors(
-                    baseColor: const Color(0xffeb3446),
+                    baseColor: const Color(0xFFFF0019),
                     highlightColor: Color(0xffffffff),
                     period: Duration(seconds: 2),
                     child: Text(
                       "Mozika",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontFamily: "ProductSans",
                       ),
                     )))

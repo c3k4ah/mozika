@@ -7,39 +7,38 @@ class LecturePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.grey.shade300,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.red,
         ),
-        body: Column(
-          children: [PhotoALbumCover(), ListePlay()],
-        ));
-  }
-}
-
-class RoundButton extends StatelessWidget {
-  final IconData icon;
-  final onTap;
-  const RoundButton({required Key? key, required this.icon, this.onTap})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white30,
-      ),
-      padding: EdgeInsets.all(5.0),
-      child: IconButton(
-        icon: Icon(
-          icon,
-          color: Colors.white,
-        ),
-        onPressed: onTap,
-      ),
-      height: 50,
-      width: 50,
-    );
+        body: Stack(children: [
+          Column(
+            children: [PhotoALbumCover(), ListePlay()],
+          ),
+          Positioned(
+            top: 0.162 * Get.height,
+            left: 0.41 * Get.width,
+            //right: 0.5 * width,
+            child: Container(
+                width: 100,
+                height: 60,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    )),
+                child: Center(
+                  child: Icon(
+                    Icons.pause,
+                    size: 35,
+                    color: Colors.white,
+                  ),
+                )),
+          ),
+        ]));
   }
 }
 
@@ -49,20 +48,12 @@ class PhotoALbumCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.grey.shade300,
       height: .2 * Get.height,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black,
-          /*image: DecorationImage(
-              image: AssetImage('assets/images/shyn1.jpg'), fit: BoxFit.cover),*/
+          color: Colors.red,
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
-          /*boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
-                  offset: Offset(0, 8),
-                  blurRadius: 5.0),
-            ]*/
         ),
       ),
     );
@@ -102,11 +93,11 @@ class ListePlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: Colors.red,
       child: Container(
         height: .55 * Get.height,
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: Colors.grey.shade300,
           borderRadius: BorderRadius.only(topRight: Radius.circular(50)),
         ),
       ),
