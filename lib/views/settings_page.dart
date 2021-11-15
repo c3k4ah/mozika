@@ -1,246 +1,178 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+import 'package:get/get.dart';
+import 'package:mzk/views/widgets/color_picker.dart';
 
-Color primaryCol = Color(0xff8A051C); //maroon
-//Color primaryCol = Color(0xff1ED760); //green
-List<Map> songs = [
-  {'song': 'Small Talk', 'duration': '4:29'},
-  {'song': 'Bad Guy', 'duration': '2:45'},
-  {'song': 'Boyfriend', 'duration': '3:28'},
-  {'song': 'OMG', 'duration': '3:37'},
-  {'song': 'Let Us Love', 'duration': '3:02'},
-  {'song': 'July', 'duration': '3:42'},
-];
-int selectedSongIndex = 1;
+class Parametrage extends StatefulWidget {
+  const Parametrage({Key? key}) : super(key: key);
 
-class HomePage extends StatelessWidget {
+  @override
+  _ParametrageState createState() => _ParametrageState();
+}
+
+class _ParametrageState extends State<Parametrage> {
+  Color currentColor = Colors.white;
+
+  void changeColor(Color color) => setState(() => currentColor = color);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Color(0xffefefef),
-      appBar: _homeAppBar(),
-      body: _homeBody(),
-      bottomNavigationBar: homeBottomMenu(),
-    );
-  }
-
-  SizedBox homeBottomMenu() {
-    return SizedBox(
-      height: 120,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: currentColor,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+          color: Colors.black,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            InkWell(child: Icon(Icons.shuffle), onTap: () {}),
-            Row(
-              children: [
-                Icon(Icons.fast_rewind),
-                SizedBox(
-                  width: 20,
-                ),
-                Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0, 10),
-                      blurRadius: 15,
+            Text("Apparence",
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                )),
+            Divider(),
+            InkWell(
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Choisir une couleur"),
+                        content: SingleChildScrollView(
+                            child: BlockPicker(
+                                pickerColor: currentColor,
+                                onColorChanged: changeColor)),
+                      );
+                    });
+              },
+              child: SizedBox(
+                child: Card(
+                  margin: EdgeInsets.all(10),
+                  elevation: 20,
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.redAccent,
+                      child: Icon(Icons.color_lens, color: Colors.white),
                     ),
-                  ]),
-                  child: Icon(
-                    Icons.pause_circle_filled,
-                    size: 60,
+                    title: Text("Personalisez vos couleurs"),
                   ),
                 ),
-                SizedBox(
-                  width: 20,
-                ),
-                Icon(Icons.fast_forward),
-              ],
+              ),
             ),
-            InkWell(child: Icon(Icons.toc), onTap: () {}),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.yellow.shade700,
+                    child: Icon(Icons.insert_emoticon, color: Colors.white),
+                  ),
+                  title: Text("Changer le style d'icon"),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.black,
+                    child: Icon(
+                      Icons.dark_mode,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: Text("Mode Dark/Light"),
+                ),
+              ),
+            ),
+            Text("Audio",
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                )),
+            Divider(),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.graphic_eq, color: Colors.white),
+                  ),
+                  title: Text("Egaliseur"),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.purple,
+                    child: Icon(Icons.speaker_group, color: Colors.white),
+                  ),
+                  title: Text("Activer mode speaker"),
+                  trailing: Icon(
+                    Icons.toggle_on,
+                    color: Colors.purple,
+                    size: 50,
+                  ),
+                ),
+              ),
+            ),
+            Text("Stockage",
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                )),
+            Divider(),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.blueGrey,
+                    child: Icon(Icons.source, color: Colors.white),
+                  ),
+                  title: Text("Chemin de lecture"),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Card(
+                margin: EdgeInsets.all(10),
+                elevation: 20,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.deepOrange,
+                    child: Icon(Icons.drive_folder_upload, color: Colors.white),
+                  ),
+                  title: Text("Rafrachir"),
+                  trailing: Icon(
+                    Icons.refresh,
+                    color: Colors.black,
+                    size: 25,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
-    );
-  }
-
-  SizedBox _homeBody() {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Container(
-                width: 275,
-                height: 390,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      "Bad guy",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      "Billie Eilish/Justin Bieber",
-                      style: GoogleFonts.lato(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0, 20),
-                      blurRadius: 30,
-                      spreadRadius: 0,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(200),
-                    bottomRight: Radius.circular(200),
-                  ),
-                  image: DecorationImage(
-                    colorFilter:
-                        ColorFilter.mode(primaryCol, BlendMode.multiply),
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://images.pexels.com/photos/4972607/pexels-photo-4972607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: -45,
-                left: -40,
-                child: SleekCircularSlider(
-                  min: 0, //song start time
-                  max: 4, //song end time (duration)
-                  initialValue: 1, //default value
-                  appearance: CircularSliderAppearance(
-                    size: 360,
-                    counterClockwise: true,
-                    startAngle: 150,
-                    angleRange: 120,
-                    customWidths: CustomSliderWidths(
-                      trackWidth: 3,
-                      progressBarWidth: 10,
-                      shadowWidth: 0,
-                    ),
-                    customColors: CustomSliderColors(
-                      trackColor: Colors.black12,
-                      progressBarColor: Colors.black,
-                    ),
-                    infoProperties: InfoProperties(
-                      mainLabelStyle: TextStyle(
-                        color: Colors.transparent,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: songs.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                    left: 60,
-                    right: 60,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 40,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "${songs[index]['song']}",
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              color: index == selectedSongIndex
-                                  ? primaryCol
-                                  : Colors.black87,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          "${songs[index]['duration']}",
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              color: index == selectedSongIndex
-                                  ? primaryCol
-                                  : Colors.black87,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  AppBar _homeAppBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      leading: IconButton(
-        icon: Icon(
-          Icons.chevron_left,
-          color: Colors.black,
-          size: 35,
-        ),
-        onPressed: null,
-      ),
-      actions: [
-        Transform.rotate(
-          angle: (270 / (180 / pi)), //rotate by 270 degrees
-          child: IconButton(
-            icon: Icon(
-              Icons.bar_chart,
-              color: Colors.black,
-              size: 35,
-            ),
-            onPressed: null,
-          ),
-        ),
-      ],
     );
   }
 }

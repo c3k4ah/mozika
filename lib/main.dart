@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => SplashScreen(),
           '/home': (context) => HomeSreen(),
-          '/setting': (context) => HomePage(),
+          '/setting': (context) => Parametrage(),
           '/playList': (context) => LecturePage(),
         });
   }

@@ -9,15 +9,12 @@ class LecturePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey.shade300,
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-        ),
         body: Stack(children: [
           Column(
             children: [PhotoALbumCover(), ListePlay()],
           ),
           Positioned(
-            top: 0.162 * Get.height,
+            top: 0.25 * Get.height,
             left: 0.4 * Get.width,
             //right: 0.5 * width,
             child: Container(
@@ -57,12 +54,13 @@ class PhotoALbumCover extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey.shade300,
-      height: .2 * Get.height,
+      height: .3 * Get.height,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.red,
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
         ),
+        //child: MyAnimatedWaveCurves(),
       ),
     );
   }
@@ -103,15 +101,14 @@ class ListePlay extends StatelessWidget {
     return Container(
       color: Colors.red,
       child: Container(
-        height: .6 * Get.height,
+        height: .68 * Get.height,
         decoration: BoxDecoration(
           color: Colors.grey.shade300,
           borderRadius: BorderRadius.only(topRight: Radius.circular(50)),
         ),
         child: ListView.builder(
           itemCount: 15,
-          padding: EdgeInsets.symmetric(
-              vertical: Get.height * 0.05, horizontal: Get.width * 0.03),
+          padding: EdgeInsets.all(20),
           itemBuilder: (context, index) {
             return CardListeMusic();
           },
