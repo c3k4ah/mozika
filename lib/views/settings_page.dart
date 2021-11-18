@@ -19,6 +19,8 @@ class _ParametrageState extends State<Parametrage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: currentColor,
+        title: Text("Settings",
+            style: TextStyle(color: Colors.black, fontSize: 25)),
         leading: IconButton(
           onPressed: () {
             Get.back();
@@ -34,7 +36,7 @@ class _ParametrageState extends State<Parametrage> {
                 style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 27,
                 )),
             Divider(),
             InkWell(
@@ -91,6 +93,11 @@ class _ParametrageState extends State<Parametrage> {
                     ),
                   ),
                   title: Text("Mode Dark/Light"),
+                  trailing: Icon(
+                    Icons.toggle_off,
+                    color: Colors.black,
+                    size: 50,
+                  ),
                 ),
               ),
             ),
@@ -98,7 +105,7 @@ class _ParametrageState extends State<Parametrage> {
                 style: TextStyle(
                   color: Colors.grey.shade600,
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 27,
                 )),
             Divider(),
             SizedBox(
@@ -142,7 +149,7 @@ class _ParametrageState extends State<Parametrage> {
             SizedBox(
               child: Card(
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                elevation: 27,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.blueGrey,
