@@ -61,13 +61,50 @@ class PhotoALbumCover extends StatelessWidget {
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
           ),
           child: Container(
-            margin:
-                EdgeInsets.only(top: Get.height * .1, left: Get.width * .05),
+            margin: EdgeInsets.only(top: Get.height * .06),
             child: Column(
               children: [
                 Row(
-                  children: [Icon(Icons.arrow_back_ios)],
-                )
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    )
+                  ],
+                ),
+                Text(
+                  'Tsara Joro',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                        offset: Offset(5.0, 5.0),
+                      ),
+                    ],
+                  ),
+                ),
+                Text('Amino',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 10.0,
+                          color: Colors.black,
+                          offset: Offset(5.0, 5.0),
+                        ),
+                      ],
+                    )),
               ],
             ),
           )),
