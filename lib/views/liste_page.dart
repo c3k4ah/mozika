@@ -56,42 +56,24 @@ class PhotoALbumCover extends StatelessWidget {
       color: Colors.grey.shade300,
       height: .3 * Get.height,
       child: Container(
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
-        ),
-        //child: MyAnimatedWaveCurves(),
-      ),
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
+          ),
+          child: Container(
+            margin:
+                EdgeInsets.only(top: Get.height * .1, left: Get.width * .05),
+            child: Column(
+              children: [
+                Row(
+                  children: [Icon(Icons.arrow_back_ios)],
+                )
+              ],
+            ),
+          )),
     );
   }
 }
-
-/*Positioned(
-            bottom: 0.0 * Get.height,
-            left: 0.41 * Get.width,
-            //right: 0.5 * width,
-            child: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular((Get.width - 100) / 2),
-                      topRight: Radius.circular((Get.width - 100) / 2),
-                    )),
-                child: Center(
-                  child: MaterialButton(
-                    shape: CircleBorder(),
-                    color: Colors.white,
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.favorite_rounded,
-                      size: 30,
-                      color: Colors.red.shade400,
-                    ),
-                  ),
-                )),
-          ),*/
 
 class ListePlay extends StatelessWidget {
   const ListePlay({Key? key}) : super(key: key);
