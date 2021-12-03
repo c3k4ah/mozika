@@ -93,10 +93,17 @@ class _ParametrageState extends State<Parametrage> {
                     ),
                   ),
                   title: Text("Mode Dark/Light"),
-                  trailing: Icon(
-                    Icons.toggle_off,
-                    color: Colors.black,
-                    size: 50,
+                  trailing: IconButton(
+                    icon: Icon(
+                      Icons.toggle_off,
+                      color: Colors.black,
+                      size: 50,
+                    ),
+                    onPressed: () {
+                      Get.isDarkMode
+                          ? Get.changeTheme(ThemeData.light())
+                          : Get.changeTheme(ThemeData.dark());
+                    },
                   ),
                 ),
               ),
