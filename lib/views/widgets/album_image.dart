@@ -11,7 +11,7 @@ Widget artisteImage() => Container(
     ),
     decoration: BoxDecoration(
       image: DecorationImage(
-        image: ExactAssetImage('assets/images/denise2.jpg'),
+        image: ExactAssetImage('assets/images/pochette.png'),
         /*doit changer en fonction du photo  de l'album
             les primaryWatch doit hériter du même couleur que cette album..sinon l'user peut choisir sa couleur 'color picker'*/
         fit: BoxFit.cover,

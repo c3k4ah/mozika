@@ -36,11 +36,15 @@ class LecturePage extends StatelessWidget {
                           spreadRadius: 0.5)
                     ]),
                 child: Center(
-                  child: Icon(
-                    Icons.pause,
-                    size: 35,
-                    color: Colors.black,
-                  ),
+                  child: IconButton(
+                      onPressed: () {
+                        Get.toNamed('/search');
+                      },
+                      icon: Icon(
+                        Icons.search,
+                        size: 35,
+                        color: Colors.red.shade900,
+                      )),
                 )),
           ),
         ]));

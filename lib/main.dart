@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mzk/views/lecture_page.dart';
+import 'package:mzk/views/recherche.dart';
 import 'package:mzk/views/settings_page.dart';
 import 'package:mzk/views/liste_page.dart';
 import 'package:mzk/views/splash.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
           '/home': (context) => HomeSreen(),
           '/setting': (context) => Parametrage(),
           '/playList': (context) => LecturePage(),
+          '/search': (context) => Recherche(),
         });
   }
 }
