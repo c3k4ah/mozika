@@ -6,6 +6,7 @@ import 'package:mzk/views/widgets/music_bar.dart';
 
 import 'widgets/album_image.dart';
 import 'widgets/times_code.dart';
+// ignore: unused_import
 import 'widgets/titre.dart';
 
 /* -------------------------------------------------------------------------- */
@@ -35,7 +36,6 @@ class _HomeSreenState extends State<HomeSreen>
           children: <Widget>[
             artisteImage(),
             timesBar(),
-            titre(),
             timesCode(),
             Positioned(
               top: 0.1 * Get.height,
