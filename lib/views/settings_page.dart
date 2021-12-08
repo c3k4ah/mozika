@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 import 'package:mzk/views/widgets/color_picker.dart';
 
 class Parametrage extends StatefulWidget {
@@ -10,23 +11,22 @@ class Parametrage extends StatefulWidget {
 }
 
 class _ParametrageState extends State<Parametrage> {
-  Color currentColor = Colors.white;
+  Color currentColor = primaire;
 
   void changeColor(Color color) => setState(() => currentColor = color);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: primaire,
       appBar: AppBar(
         backgroundColor: currentColor,
-        title: Text("Settings",
-            style: TextStyle(color: Colors.black, fontSize: 25)),
+        title: Text("Settings", style: TextStyle(color: white, fontSize: 25)),
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
           icon: Icon(Icons.arrow_back_ios),
-          color: Colors.black,
+          color: white,
         ),
       ),
       body: SingleChildScrollView(
@@ -34,8 +34,7 @@ class _ParametrageState extends State<Parametrage> {
           children: [
             Text("Apparence",
                 style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontWeight: FontWeight.bold,
+                  color: white,
                   fontSize: 27,
                 )),
             Divider(),
@@ -55,14 +54,18 @@ class _ParametrageState extends State<Parametrage> {
               },
               child: SizedBox(
                 child: Card(
+                  color: secondaire,
                   margin: EdgeInsets.all(10),
-                  elevation: 20,
+                  elevation: 5,
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.redAccent,
                       child: Icon(Icons.color_lens, color: Colors.white),
                     ),
-                    title: Text("Personalisez vos couleurs"),
+                    title: Text(
+                      "Personalisez vos couleurs",
+                      style: TextStyle(color: white),
+                    ),
                   ),
                 ),
               ),
@@ -70,115 +73,116 @@ class _ParametrageState extends State<Parametrage> {
             SizedBox(
               child: Card(
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                color: secondaire,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.yellow.shade700,
                     child: Icon(Icons.insert_emoticon, color: Colors.white),
                   ),
-                  title: Text("Changer le style d'icon"),
+                  title: Text(
+                    "Changer le style d'icon",
+                    style: TextStyle(color: white),
+                  ),
                 ),
               ),
             ),
             SizedBox(
               child: Card(
+                color: secondaire,
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.white,
                     child: Icon(
                       Icons.dark_mode,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
-                  title: Text("Mode Dark/Light"),
+                  title:
+                      Text("Mode Dark/Light", style: TextStyle(color: white)),
                   trailing: IconButton(
                     icon: Icon(
                       Icons.toggle_off,
-                      color: Colors.black,
+                      color: white,
                       size: 50,
                     ),
-                    onPressed: () {
-                      Get.isDarkMode
-                          ? Get.changeTheme(ThemeData.light())
-                          : Get.changeTheme(ThemeData.dark());
-                    },
+                    onPressed: () {},
                   ),
                 ),
               ),
             ),
             Text("Audio",
                 style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontWeight: FontWeight.bold,
+                  color: white,
                   fontSize: 27,
                 )),
             Divider(),
             SizedBox(
               child: Card(
+                color: secondaire,
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: Icon(Icons.graphic_eq, color: Colors.white),
                   ),
-                  title: Text("Egaliseur"),
+                  title: Text("Egaliseur", style: TextStyle(color: white)),
                 ),
               ),
             ),
             SizedBox(
               child: Card(
+                color: secondaire,
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.purple,
                     child: Icon(Icons.speaker_group, color: Colors.white),
                   ),
-                  title: Text("Activer mode speaker"),
-                  trailing: Icon(
-                    Icons.toggle_on,
-                    color: Colors.purple,
-                    size: 50,
-                  ),
+                  title: Text("Activer mode speaker",
+                      style: TextStyle(color: white)),
                 ),
               ),
             ),
             Text("Stockage",
                 style: TextStyle(
-                  color: Colors.grey.shade600,
-                  fontWeight: FontWeight.bold,
+                  color: white,
                   fontSize: 30,
                 )),
             Divider(),
             SizedBox(
               child: Card(
+                color: secondaire,
                 margin: EdgeInsets.all(10),
-                elevation: 27,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.blueGrey,
                     child: Icon(Icons.source, color: Colors.white),
                   ),
-                  title: Text("Chemin de lecture"),
+                  title:
+                      Text("Chemin de lecture", style: TextStyle(color: white)),
                 ),
               ),
             ),
             SizedBox(
               child: Card(
+                color: secondaire,
                 margin: EdgeInsets.all(10),
-                elevation: 20,
+                elevation: 5,
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.deepOrange,
                     child: Icon(Icons.drive_folder_upload, color: Colors.white),
                   ),
-                  title: Text("Rafrachir"),
+                  title: Text("Rafrachir", style: TextStyle(color: white)),
                   trailing: Icon(
                     Icons.refresh,
-                    color: Colors.black,
+                    color: white,
                     size: 25,
                   ),
                 ),

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 Widget titre() => Positioned(
     bottom: 0.17 * Get.height,
-    left: 0.3 * Get.width,
+    left: 0.35 * Get.width,
     /*right: 0.5 * width,*/
     child: Column(children: <Widget>[
       Text(
@@ -33,7 +33,7 @@ Widget titre() => Positioned(
               ),
             ],
           )),
-      MaterialButton(
+      /*MaterialButton(
         shape: CircleBorder(),
         color: Colors.white,
         onPressed: () {},
@@ -42,5 +42,5 @@ Widget titre() => Positioned(
           size: 30,
           color: Colors.red.shade400,
         ),
-      )
+      )*/
     ]));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 
 class Recherche extends StatefulWidget {
   const Recherche({Key? key}) : super(key: key);
@@ -12,7 +13,10 @@ class _RechercheState extends State<Recherche> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: primaire,
+      appBar: AppBar(
+        backgroundColor: primaire,
+      ),
       body: Column(
         children: [
           SizedBox(
@@ -25,15 +29,15 @@ class _RechercheState extends State<Recherche> {
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             height: 54,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: secondaire,
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [
+              /*boxShadow: [
                 BoxShadow(
                   offset: Offset(0, 5),
-                  blurRadius: 20,
-                  color: Colors.red,
+                  blurRadius: 10,
+                  color: white,
                 ),
-              ],
+              ],*/
             ),
             child: Row(
               children: <Widget>[
@@ -47,7 +51,10 @@ class _RechercheState extends State<Recherche> {
                       ),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
-                      suffixIcon: Icon(Icons.search),
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: white,
+                      ),
                     ),
                   ),
                 ),

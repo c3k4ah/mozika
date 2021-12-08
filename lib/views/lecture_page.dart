@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 import 'package:mzk/views/widgets/times_bar.dart';
 import 'package:mzk/views/widgets/music_bar.dart';
 
@@ -29,7 +30,7 @@ class _HomeSreenState extends State<HomeSreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.grey.shade300,
+        color: primaire,
         child: Stack(
           children: <Widget>[
             artisteImage(),
@@ -42,14 +43,14 @@ class _HomeSreenState extends State<HomeSreen>
               child: MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50)),
-                color: Colors.white,
+                color: secondaire,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/setting');
+                  Get.toNamed('/setting');
                 },
                 child: Icon(
                   Icons.settings_outlined,
                   size: 30,
-                  color: Colors.black,
+                  color: red,
                 ),
               ),
             ),
@@ -61,14 +62,14 @@ class _HomeSreenState extends State<HomeSreen>
               child: MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50)),
-                color: Colors.white,
+                color: secondaire,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/playList');
+                  Get.toNamed('/playList');
                 },
                 child: Icon(
                   Icons.queue_music_outlined,
                   size: 30,
-                  color: Colors.black,
+                  color: red,
                 ),
               ),
             ),
@@ -76,7 +77,7 @@ class _HomeSreenState extends State<HomeSreen>
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.grey.shade300,
+        color: primaire,
         child: MusicBar(),
       ),
     );

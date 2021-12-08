@@ -21,8 +21,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         theme: ThemeData(primarySwatch: Colors.red, fontFamily: "ProductSans"),
         debugShowCheckedModeBanner: false,
-        darkTheme: ThemeData.dark(),
-        themeMode: ThemeMode.system,
         initialRoute: '/',
         routes: {
           '/': (context) => SplashScreen(),

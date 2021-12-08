@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 Widget timesBar() => Positioned(
     left: 0,
     right: 0,
-    bottom: 0.1 * Get.height,
+    bottom: 0.09 * Get.height,
     child: SleekCircularSlider(
       min: 0,
       max: 100,
@@ -29,11 +30,11 @@ Widget timesBar() => Positioned(
             handlerSize: 8.0,
           ),
           customColors: CustomSliderColors(
-            trackColor: Colors.black,
+            trackColor: secondaire,
             /*track prog déjà faut sur la bar de progression*/
-            progressBarColor: Colors.red.shade400,
+            progressBarColor: red,
             /*progressBar prog restant sur la bar de progression*/
-            dotColor: Colors.black,
+            dotColor: secondaire,
             /*dot(anglais)=point ,c'est le point qui indique la progression*/
           )),
     ));

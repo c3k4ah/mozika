@@ -2,7 +2,8 @@
 library block_colorpicker;
 
 import 'package:flutter/material.dart';
-import 'package:mzk/views/widgets/utils.dart';
+import 'package:mzk/colors.dart';
+import 'package:mzk/views/widgets/utils_picker.dart';
 
 /// Child widget for layout builder.
 typedef PickerItem = Widget Function(Color color);
@@ -17,7 +18,7 @@ typedef PickerItemBuilder = Widget Function(
 
 // Provide a list of colors for block color picker.
 const List<Color> _defaultColors = [
-  Colors.white,
+  primaire,
   Colors.red,
   Colors.pink,
   Colors.purple,

@@ -22,10 +22,9 @@ Widget artisteImage() => Container(
       ),
       boxShadow: [
         BoxShadow(
-          color: Colors.black54,
+          color: Colors.white38,
           offset: Offset(0, 20),
           blurRadius: 30,
-          spreadRadius: 0,
         ),
       ],
     ));

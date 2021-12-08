@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 import 'package:mzk/views/widgets/liste_card.dart';
 
 class LecturePage extends StatelessWidget {
@@ -8,7 +9,7 @@ class LecturePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: primaire,
         body: Stack(children: [
           Column(
             children: [PhotoALbumCover(), ListePlay()],
@@ -21,20 +22,21 @@ class LecturePage extends StatelessWidget {
                 width: 100,
                 height: 60,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
-                    boxShadow: [
+                  color: secondaire,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                  ),
+                  /*boxShadow: [
                       BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 30,
+                          color: white,
+                          blurRadius: 20,
                           offset: Offset(2, 2),
-                          spreadRadius: 0.5)
-                    ]),
+                          spreadRadius: 0.1)
+                    ]*/
+                ),
                 child: Center(
                   child: IconButton(
                       onPressed: () {
@@ -43,7 +45,7 @@ class LecturePage extends StatelessWidget {
                       icon: Icon(
                         Icons.search,
                         size: 35,
-                        color: Colors.red.shade900,
+                        color: red,
                       )),
                 )),
           ),
@@ -57,11 +59,11 @@ class PhotoALbumCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey.shade300,
+      color: primaire,
       height: .3 * Get.height,
       child: Container(
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: Colors.red.shade800,
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50)),
           ),
           child: Container(
@@ -122,11 +124,11 @@ class ListePlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.red.shade800,
       child: Container(
         height: .68 * Get.height,
         decoration: BoxDecoration(
-          color: Colors.grey.shade300,
+          color: primaire,
           borderRadius: BorderRadius.only(topRight: Radius.circular(50)),
         ),
         child: ListView.builder(

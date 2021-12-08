@@ -8,5 +8,7 @@ Widget timesCode() => Positioned(
     child: Stack(children: <Widget>[
       Text('02:30',
           style: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold)),
+            color: Colors.white,
+            fontSize: 25,
+          )),
     ]));

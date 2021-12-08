@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
+import 'package:mzk/colors.dart';
 
 class MusicBar extends StatefulWidget {
   const MusicBar({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _MusicBarState extends State<MusicBar>
     return Container(
       height: 0.13 * Get.height,
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: primaire,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -36,7 +37,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.shuffle_outlined,
               size: 34,
-              color: Colors.black,
+              color: white,
             ),
             onPressed: () {},
           ),
@@ -44,7 +45,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.skip_previous_outlined,
               size: 35,
-              color: Colors.black,
+              color: white,
             ),
             onPressed: () {},
           ),
@@ -79,7 +80,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.skip_next_outlined,
               size: 35,
-              color: Colors.black,
+              color: white,
             ),
             onPressed: () {},
           ),
@@ -87,7 +88,7 @@ class _MusicBarState extends State<MusicBar>
             icon: Icon(
               Icons.playlist_add_rounded,
               size: 40,
-              color: Colors.black,
+              color: white,
             ),
             onPressed: () {},
           ),
