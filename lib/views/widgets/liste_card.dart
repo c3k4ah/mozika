@@ -2,9 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mzk/colors.dart';
 
-class CardListeMusic extends StatelessWidget {
-  const CardListeMusic({Key? key}) : super(key: key);
+class CardListeMusic extends StatefulWidget {
+  const CardListeMusic({Key key}) : super(key: key);
 
+  /*final cheminDuSongActuel;
+  final titre;
+  final titreActuel;
+  final coverAlbum;
+  final artiste;*/
+
+  @override
+  _CardListeMusicState createState() => _CardListeMusicState();
+}
+
+class _CardListeMusicState extends State<CardListeMusic> {
   @override
   Widget build(BuildContext context) {
     return Card(

@@ -1,11 +1,26 @@
+import 'package:audio_manager/audio_manager.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_audio_query/flutter_audio_query.dart';
 import 'package:get/get.dart';
 import 'package:mzk/colors.dart';
+
+// ignore: unused_import
 import 'package:mzk/views/widgets/liste_card.dart';
 
-class LecturePage extends StatelessWidget {
-  const LecturePage({Key? key}) : super(key: key);
+var audioManagerInstance = AudioManager.instance;
+PlayMode playMode = audioManagerInstance.playMode;
+bool isPlaying = false;
+double slider;
 
+class LecturePage extends StatefulWidget {
+  const LecturePage({Key key}) : super(key: key);
+
+  @override
+  _LecturePageState createState() => _LecturePageState();
+}
+
+class _LecturePageState extends State<LecturePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +69,7 @@ class LecturePage extends StatelessWidget {
 }
 
 class PhotoALbumCover extends StatelessWidget {
-  const PhotoALbumCover({Key? key}) : super(key: key);
+  const PhotoALbumCover({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -118,8 +133,30 @@ class PhotoALbumCover extends StatelessWidget {
   }
 }
 
-class ListePlay extends StatelessWidget {
-  const ListePlay({Key? key}) : super(key: key);
+class ListePlay extends StatefulWidget {
+  const ListePlay({Key key}) : super(key: key);
+
+  @override
+  _ListePlayState createState() => _ListePlayState();
+}
+
+class _ListePlayState extends State<ListePlay> {
+  final FlutterAudioQuery audioQuery = FlutterAudioQuery();
+  var songslist;
+
+  listeAudio() async {
+    List<SongInfo> songs = await audioQuery.getSongs();
+    //alaina aby hira jiaby agnaty phone ao d atao anaty variable <liste> "songs"
+    setState(() {
+      songslist = songs;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    listeAudio();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,10 +169,30 @@ class ListePlay extends StatelessWidget {
           borderRadius: BorderRadius.only(topRight: Radius.circular(50)),
         ),
         child: ListView.builder(
-          itemCount: 15,
+          itemCount: songslist.length,
           padding: EdgeInsets.all(20),
           itemBuilder: (context, index) {
-            return CardListeMusic();
+            SongInfo song = songslist[index];
+            return Card(
+              color: secondaire,
+              margin: EdgeInsets.only(top: Get.height * .02),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 18,
+                ),
+                title: Text(song.title,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: white,
+                    )),
+                trailing: Text(song.artist,
+                    style: TextStyle(
+                      color: white,
+                    )),
+              ),
+            );
           },
         ),
       ),

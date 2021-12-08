@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:mzk/colors.dart';
 
 class Recherche extends StatefulWidget {
-  const Recherche({Key? key}) : super(key: key);
+  const Recherche({Key key}) : super(key: key);
 
   @override
   _RechercheState createState() => _RechercheState();

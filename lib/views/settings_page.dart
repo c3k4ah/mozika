@@ -4,7 +4,7 @@ import 'package:mzk/colors.dart';
 import 'package:mzk/views/widgets/color_picker.dart';
 
 class Parametrage extends StatefulWidget {
-  const Parametrage({Key? key}) : super(key: key);
+  const Parametrage({Key key}) : super(key: key);
 
   @override
   _ParametrageState createState() => _ParametrageState();

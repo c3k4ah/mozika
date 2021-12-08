@@ -92,9 +92,9 @@ Widget _defaultItemBuilder(
 // The blocky color picker you can alter the layout and shape.
 class BlockPicker extends StatefulWidget {
   const BlockPicker({
-    Key? key,
-    required this.pickerColor,
-    required this.onColorChanged,
+    Key key,
+    this.pickerColor,
+    this.onColorChanged,
     this.availableColors = _defaultColors,
     this.layoutBuilder = _defaultLayoutBuilder,
     this.itemBuilder = _defaultItemBuilder,
@@ -111,7 +111,7 @@ class BlockPicker extends StatefulWidget {
 }
 
 class _BlockPickerState extends State<BlockPicker> {
-  late Color _currentColor;
+  Color _currentColor;
 
   @override
   void initState() {
@@ -129,7 +129,7 @@ class _BlockPickerState extends State<BlockPicker> {
     return widget.layoutBuilder(
       context,
       widget.availableColors,
-      (Color color, [bool? _, Function? __]) => widget.itemBuilder(
+      (Color color, [bool _, Function __]) => widget.itemBuilder(
         color,
         (_currentColor.value == color.value) &&
             (widget.pickerColor.value == color.value),
@@ -142,9 +142,9 @@ class _BlockPickerState extends State<BlockPicker> {
 // The blocky color picker you can alter the layout and shape with multiple choice.
 class MultipleChoiceBlockPicker extends StatefulWidget {
   const MultipleChoiceBlockPicker({
-    Key? key,
-    required this.pickerColors,
-    required this.onColorsChanged,
+    Key key,
+    this.pickerColors,
+    this.onColorsChanged,
     this.availableColors = _defaultColors,
     this.layoutBuilder = _defaultLayoutBuilder,
     this.itemBuilder = _defaultItemBuilder,
@@ -161,7 +161,7 @@ class MultipleChoiceBlockPicker extends StatefulWidget {
 }
 
 class _MultipleChoiceBlockPickerState extends State<MultipleChoiceBlockPicker> {
-  late List<Color> _currentColors;
+  List<Color> _currentColors;
 
   @override
   void initState() {
@@ -181,7 +181,7 @@ class _MultipleChoiceBlockPickerState extends State<MultipleChoiceBlockPicker> {
     return widget.layoutBuilder(
       context,
       widget.availableColors,
-      (Color color, [bool? _, Function? __]) => widget.itemBuilder(
+      (Color color, [bool _, Function __]) => widget.itemBuilder(
         color,
         _currentColors.contains(color),
         () => toggleColor(color),

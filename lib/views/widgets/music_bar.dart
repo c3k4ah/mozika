@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:mzk/colors.dart';
 
 class MusicBar extends StatefulWidget {
-  const MusicBar({Key? key}) : super(key: key);
+  const MusicBar({Key key}) : super(key: key);
 
   @override
   _MusicBarState createState() => _MusicBarState();
@@ -13,8 +13,8 @@ class MusicBar extends StatefulWidget {
 class _MusicBarState extends State<MusicBar>
     with SingleTickerProviderStateMixin {
   bool isPlaying = false;
-  late Animation animation;
-  late AnimationController controller;
+   Animation animation;
+   AnimationController controller;
   @override
   void initState() {
     super.initState();

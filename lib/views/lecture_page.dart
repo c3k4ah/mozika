@@ -18,8 +18,8 @@ class HomeSreen extends StatefulWidget {
 class _HomeSreenState extends State<HomeSreen>
     with SingleTickerProviderStateMixin {
   bool isPlaying = false;
-  late Animation animation;
-  late AnimationController controller;
+  Animation animation;
+  AnimationController controller;
   @override
   void initState() {
     super.initState();

@@ -147,7 +147,7 @@ const String kCompleteValidHexPattern =
 /// colorFromHex('') == null // empty
 /// ```
 /// Reference: https://en.wikipedia.org/wiki/Web_colors#Hex_triplet
-Color? colorFromHex(String inputString, {bool enableAlpha = true}) {
+Color colorFromHex(String inputString, {bool enableAlpha = true}) {
   // Registers validator for exactly 6 or 8 digits long HEX (with optional #).
   final RegExp hexValidator = RegExp(kCompleteValidHexPattern);
   // Validating input, if it does not match — it's not proper HEX.
