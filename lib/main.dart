@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offNamed('/home');
+      Get.offNamed('/playList');
     });
     return GetMaterialApp(
         theme: ThemeData(primarySwatch: Colors.red, fontFamily: "ProductSans"),
@@ -30,4 +30,4 @@ class MyApp extends StatelessWidget {
           '/search': (context) => Recherche(),
         });
   }
-}
+}/* */

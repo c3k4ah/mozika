@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:audio_manager/audio_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_audio_query/flutter_audio_query.dart';
 import 'package:get/get.dart';
 import 'package:mzk/colors.dart';
+import 'package:mzk/views/lecture_page.dart';
 
 // ignore: unused_import
 import 'package:mzk/views/widgets/liste_card.dart';
@@ -11,7 +14,6 @@ import 'package:mzk/views/widgets/liste_card.dart';
 var audioManagerInstance = AudioManager.instance;
 PlayMode playMode = audioManagerInstance.playMode;
 bool isPlaying = false;
-double slider;
 
 class LecturePage extends StatefulWidget {
   const LecturePage({Key key}) : super(key: key);
@@ -179,8 +181,21 @@ class _ListePlayState extends State<ListePlay> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)),
               child: ListTile(
+                onTap: () {
+                  Get.to(HomeSreen(
+                    photoAlbum: song.albumArtwork,
+                    songEcouterActuel: song.filePath,
+                    nomActuel: song.displayName,
+                    titre: song.title,
+                    artiste: song.artist,
+                  ));
+                },
                 leading: CircleAvatar(
                   radius: 18,
+                  backgroundColor: red,
+                  backgroundImage: song.albumArtwork == null
+                      ? AssetImage("assets/images/pochette.png")
+                      : FileImage(File(song.albumArtwork)),
                 ),
                 title: Text(song.title,
                     overflow: TextOverflow.ellipsis,
